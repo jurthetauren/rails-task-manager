@@ -1,0 +1,20 @@
+<h1>Listing your Tasks:</h1>
+<!--
+<#% #@tasks.each #do |task| %>
+  <h2><%#= task.title %></h2>
+  <p><#%= task.text #%#></p>
+<#% end %>
+
+-->
+<% @tasks.each do |task| %>
+<ul>
+  <li>
+    <td><%= task.title %></td>
+    <td><%= task.text %></td>
+    <td><%= link_to "- Show", task %></td>
+    <td><%= link_to "- Edit", edit_task_path(task) %></td>
+    <td><%= link_to "- Complete Task", task, method: :delete, data: { confirm: "Did you really finish this task;)?" } %></td>
+  </li>
+</ul>
+<% end %>
+</table>
